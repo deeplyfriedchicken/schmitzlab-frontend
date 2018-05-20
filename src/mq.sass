@@ -1,0 +1,46 @@
+$primary: #DAECF5 !default
+$link: #6b96c6 !default
+$warning: #ffdb00 !default
+$secondary: #FE424D !default
+$tertiary: #1AA6B7 !default
+$fourth: #022D41 !default
+
+$primaryTransparent: rgba(0, 143, 190, 0.7) !default
+
+$family-sans-serif: Helvetica, "Arial", sans-serif !default
+
+// The container horizontal gap, which acts as the offset for breakpoints
+$gap: 32px !default
+$tiny: 400px !default
+// 960, 1152, and 1344 have been chosen because they are divisible by both 12 and 16
+$tablet: 769px !default
+// 960px container + 3rem
+$desktop: 960px + (2 * $gap) !default
+// 1152px container + 3rem
+$widescreen: 1152px + (2 * $gap)  !default
+// 1344px container + 3rem
+$fullhd: 1344px + (2 * $gap)  !default
+
+=tiny
+  @media screen and (max-width: $tiny - 1px)
+    @content
+
+=mobile
+  @media screen and (min-width: $tiny) and (max-width: $tablet - 1)
+    @content
+
+=tablet
+  @media screen and (min-width: $tablet), print
+    @content
+
+=tablet-only
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1px)
+    @content
+
+=desktop
+  @media screen and (min-width: $desktop)
+    @content
+
+=desktop-only
+  @media screen and (min-width: $desktop) and (max-width: $widescreen - 1px)
+    @content
