@@ -12,7 +12,7 @@
     </div>
 
     <div id="" class="navbar-menu" v-bind:class="{ 'is-active' : burger }">
-      <div class="navbar-start">
+      <div class="navbar-start" @click="burger = false">
         <router-link class="navbar-item navbar-main" active-class="active" to="/" exact>
           Home
         </router-link>
@@ -101,8 +101,10 @@ export default {
 
 .navbar-start
   .navbar-main:hover, .navbar-main.active
-    color: $link
-    border-bottom: 5px solid black
+      color: $link
+  +desktop-only
+    .navbar-main:hover, .navbar-main.active
+      border-bottom: 5px solid black
 
 .bd-tw-button
   background-color: #55acee

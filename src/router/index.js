@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from '@/pages/HomePage.vue'
-import Team from '@/components/Team.vue'
 import ProjectPage from '@/pages/ProjectsPage.vue'
 import ResearchPage from '@/pages/ResearchPage.vue'
 import PublicationsPage from '@/pages/PublicationsPage.vue'
+import TeachingPage from '@/pages/TeachingPage.vue'
+import PeoplePage from '@/pages/PeoplePage.vue'
 
 Vue.use(Router)
 
@@ -15,8 +16,8 @@ export default new Router({
       component: HomePage
     },
     {
-      path: '/team',
-      component: Team
+      path: '/people',
+      component: PeoplePage
     },
     {
       path: '/projects',
@@ -29,6 +30,10 @@ export default new Router({
     {
       path: '/publications',
       component: PublicationsPage
+    },
+    {
+      path: '/teaching',
+      component: TeachingPage
     }
   ],
   mode: 'history'
