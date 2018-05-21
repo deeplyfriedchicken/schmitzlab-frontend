@@ -35,6 +35,7 @@ import Slideshow from '@/components/Slideshow.vue'
 import Cards from '@/components/Cards.vue'
 import Publications from '@/components/Publications.vue'
 import Projects from '@/components/Projects.vue'
+import Announcements from '@/components/Announcements.vue'
 
 import { butter } from '@/buttercms'
 
@@ -44,6 +45,7 @@ export default {
     'slideshow': Slideshow,
     'cards': Cards,
     'publications': Publications,
+    'announcements': Announcements,
     'projects': Projects
   },
   data () {

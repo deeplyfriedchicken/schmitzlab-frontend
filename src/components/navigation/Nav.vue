@@ -105,6 +105,8 @@ export default {
   +desktop
     .navbar-main:hover, .navbar-main.active
       border-bottom: 5px solid black
+    .navbar-item
+      font-size: 1rem
 
 .bd-tw-button
   background-color: #55acee
