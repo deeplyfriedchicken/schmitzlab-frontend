@@ -1,69 +1,39 @@
 <template>
-      <swiper :options="swiperOption">
-        <swiper-slide>
-          <section class="hero is-info is-medium is-bold" style="background-image:url('https://images.pexels.com/photos/207171/pexels-photo-207171.jpeg'); background-size:cover; background-repeat:no-repeat; background-position: center center;">
-            <div class="hero-body">
-              <div class="container has-text-centered">
-                <h1 class="title">
-                Lars Schmitz the website
-                </h1>
-                <h2 class="subtitle">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </h2>
-              </div>
-            </div>
-          </section>
-        </swiper-slide>
-        <swiper-slide>          
-          <section class="hero is-info is-medium is-bold" style="background-image:url('http://via.placeholder.com/1800x1500'); background-size:cover; background-repeat:no-repeat; background-position: center center;">
-            <div class="hero-body">
-              <div class="container has-text-centered">
-                <h1 class="title">
-                Ecomorph new findings
-                </h1>
-                <h2 class="subtitle">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </h2>
-              </div>
-            </div>
-          </section>
-        </swiper-slide>
-        <div class="swiper-button-prev" slot="button-prev"></div>
-        <div class="swiper-button-next" slot="button-next"></div>
-      </swiper>
+  <section class="hero is-info is-medium is-bold" :style="{ 'background-image': `url(${hero.image})` }">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title">
+          {{ hero.title }}
+        </h1>
+        <div>
+          <h2 class="subtitle">
+            {{ hero.description }}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
-import './../../node_modules/swiper/dist/css/swiper.css'
-
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
-
 export default {
   name: 'Hero',
-  components: {
-    swiper,
-    swiperSlide
-  },
-  data() {
-    return {
-      swiperOption: {
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        }
-      }
+  props: {
+    hero: {
+      type: Object
     }
   }
-
 }
 </script>
 
 <style lang="sass" scoped>
-@import './../mq'
+@import '@/mq.sass'
 
 .hero.is-info.is-bold
-  background-image: none
-  background-color: white
+  background-color: black
+  background-size: cover
+  background-repeat:no-repeat
+  background-position: center center
 
 .container
   +desktop
@@ -81,9 +51,13 @@ export default {
 
 .hero-body
   .title
-  color: hsl(192, 17%, 99%) !important
+    display: inline-block
+    padding: 0.25rem
+    color: hsl(192, 17%, 99%) !important
+    background-color: rgba(0, 0, 0, 0.5)
   .subtitle
-  color: hsl(192, 17%, 99%) !important
-  padding-top: 2rem
-  line-height: 1.5
+    display: inline-block
+    color: hsl(192, 17%, 99%) !important
+    padding: 0.5rem
+    background-color: rgba(0, 0, 0, 0.5)
 </style>

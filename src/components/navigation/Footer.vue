@@ -5,7 +5,7 @@
         <div class="section">
           <div class="columns">
             <div cass="column is-3">
-              
+
             </div>
           </div>
           <div class="columns">
@@ -83,7 +83,11 @@
       </div>
     </footer>
     <div class="copyright has-text-centered">
-      <span class="has-text-grey is-size-7">© Kevin Cunanan | The Claremont Colleges</span>
+      <div class="attribution" >
+        <img src="https://vuejs.org/images/logo.png">
+        <img src="https://cdn.buttercms.com/RyJ7UhcVTCRqrCFXwgCo">
+      </div>
+      <span class="has-text-grey is-size-7">© Schmitz Lab 2018 | Designed by Kevin Cunanan</span>
     </div>
   </div>
 </template>
@@ -95,7 +99,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import '../../mq'
+@import '@/mq.sass'
 
 .copyright
   background-color: #2B4251
@@ -103,6 +107,10 @@ export default {
 
 .section
   background-color: #fafafa
+
+.attribution
+  img
+    height: 50px
 
 .footer
   background-color: #fafafa

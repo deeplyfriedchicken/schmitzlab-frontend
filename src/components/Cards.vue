@@ -1,22 +1,18 @@
 <template>
-  <masonry :cols="{default: 3, 850: 2, 600: 1}" :gutter="30">
-    <div class="card large" v-for="n in 6" v-bind:key="n">
+  <masonry :cols="{default: 3, 1000: 2, 600: 1}" :gutter="30">
+    <div class="card large" v-for="(item, index) in collection" v-bind:key="index">
       <div class="card-image">
         <figure class="image">
-          <img src="https://source.unsplash.com/pe_R74hldW4" alt="Image">
+          <img :src="item.profile_picture" alt="Image">
         </figure>
       </div>
       <div class="card-content">
         <div class="media">
           <div class="media-content">
-            <p class="title is-4 no-padding">The Conceptionist</p>
-            <p><span class="title is-6"><a href="http://twitter.com/#">@twitterid</a></span></p>
-            <p class="subtitle is-6">Developer</p>
+            <p class="title is-4">{{ item.name }}</p>
+            <p class="subtitle is-6">{{ item.position }}</p>
+            <p class="subtitle is-6">{{ item.college }}</p>
           </div>
-        </div>
-        <div class="content">
-          {{ ipsum[n % 3] }}
-          <div class="background-icon"><span class="icon-barcode"></span></div>
         </div>
       </div>
     </div>
@@ -24,23 +20,35 @@
 </template>
 
 <script>
+import { butter } from '@/buttercms'
+
 export default {
   name: 'Cards',
   data () {
     return {
-      ipsum: [
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Moooo hi this is a testDolorum consequatur numquam aliquam tenetur ad amet inventore hic beatae, quas accusantium perferendis sapiente explicabo, corporis totam! Labore reprehenderit beatae magnam animi!',
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Moooo hi this is a testDolorum consequatur numquam aliquam tenetur ad amet inventore hic beatae, quas accusantium perferendis sapiente explicabo',
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Moooo hi this is a testDolorum consequatur numquam aliquam tenetur ad amet inventore hic beatae, quas accusantium perferendis sapiente explicabo, corporis totam! Labore reprehenderit beatae magnam animi!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Moooo hi this is a testDolorum consequatur numquam aliquam tenetur ad amet inventore hic beatae, quas accusantium perferendis sapiente explicabo, corporis totam! Labore reprehenderit beatae magnam animi!'
-      ]
+      collection: []
     }
   },
+  methods: {
+    getCollection () {
+       butter.content.retrieve(['team'])
+        .then((res) => {
+          console.log(res.data.data)
+          this.collection = res.data.data.team
+        })
+    }
+  },
+  created () {
+    this.getCollection()
+  }
 }
 </script>
 
 <style lang="sass" scoped>
+.card
+  width: 100%
+
 .card.large
-  // height: 600px
   -webkit-backface-visibility: hidden
   backface-visibility: initial
   border-radius: 5px

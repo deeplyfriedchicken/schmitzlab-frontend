@@ -1,8 +1,8 @@
 <template>
   <nav class="navbar is-transparent">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
-        <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+      <a class="navbar-item" href="">
+        <img src="/static/images/schmitzlab.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
       </a>
       <div class="navbar-burger burger" v-bind:class="{ 'is-active' : burger }" @click="burger = !burger">
         <span></span>
@@ -11,29 +11,32 @@
       </div>
     </div>
 
-    <div id="navbarExampleTransparentExample" class="navbar-menu" v-bind:class="{ 'is-active' : burger }">
+    <div id="" class="navbar-menu" v-bind:class="{ 'is-active' : burger }">
       <div class="navbar-start">
-        <a class="navbar-item" href="https://bulma.io/">
+        <router-link class="navbar-item navbar-main" active-class="active" to="/" exact>
           Home
-        </a>
-        <a class="navbar-item" href="https://bulma.io/">
+        </router-link>
+        <router-link class="navbar-item navbar-main" active-class="active" to="/research">
           Research
-        </a>
-        <a class="navbar-item" href="https://bulma.io/">
+        </router-link>
+        <router-link class="navbar-item navbar-main" active-class="active" to="/publications">
           Publications
-        </a>
-        <a class="navbar-item" href="https://bulma.io/">
+        </router-link>
+        <router-link class="navbar-item navbar-main" active-class="active" to="/teaching">
           Teaching
-        </a>
-        <a class="navbar-item" href="https://bulma.io/">
+        </router-link>
+        <router-link class="navbar-item navbar-main" active-class="active" to="/code">
           Code
-        </a>
-        <a class="navbar-item" href="https://bulma.io/">
+        </router-link>
+        <router-link class="navbar-item navbar-main" active-class="active" to="/people">
           People
-        </a>
+        </router-link>
+        <router-link class="navbar-item navbar-main" active-class="active" to="/projects">
+          Projects
+        </router-link>
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="/documentation/overview/start/">
-            Docs
+            More
           </a>
           <div class="navbar-dropdown is-boxed">
             <a class="navbar-item" href="/documentation/overview/start/">
@@ -89,11 +92,18 @@ export default {
     return {
         burger: false
     }
-  },
+  }
 }
 </script>
 
 <style lang="sass" scoped>
+@import '@/mq.sass'
+
+.navbar-start
+  .navbar-main:hover, .navbar-main.active
+    color: $link
+    border-bottom: 5px solid black
+
 .bd-tw-button
   background-color: #55acee
   color: #fff
