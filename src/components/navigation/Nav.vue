@@ -102,7 +102,7 @@ export default {
 .navbar-start
   .navbar-main:hover, .navbar-main.active
       color: $link
-  +desktop-only
+  +desktop
     .navbar-main:hover, .navbar-main.active
       border-bottom: 5px solid black
 

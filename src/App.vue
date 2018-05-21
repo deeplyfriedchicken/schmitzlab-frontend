@@ -22,9 +22,6 @@ export default {
 </script>
 
 <style lang="sass">
-@import 'mq'
-@import '../node_modules/bulma/bulma.sass'
-
 .fade-enter-active, .fade-leave-active
   height: 1000px
   transition: opacity 0.25s ease-out

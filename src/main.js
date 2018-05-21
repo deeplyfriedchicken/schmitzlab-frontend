@@ -3,9 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import VueMasonry from 'vue-masonry-css'
+
 import VueBlu from 'vue-blu'
+
+import VueMasonry from 'vue-masonry-css'
 import './../node_modules/vue-blu/dist/css/vue-blu.min.css'
+import './mq.sass'
 
 Vue.config.productionTip = false
 
