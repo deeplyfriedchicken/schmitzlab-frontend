@@ -20,9 +20,8 @@ export default {
   },
   methods: {
     getCollection () {
-       butter.content.retrieve(['projects'])
+      butter.content.retrieve(['projects'])
         .then((res) => {
-          console.log(res.data.data)
           this.projects = res.data.data.projects
         })
     }

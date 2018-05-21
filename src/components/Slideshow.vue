@@ -37,7 +37,7 @@ export default {
       type: Array
     }
   },
-  data() {
+  data () {
     return {
       swiperOption: {
         navigation: {
@@ -46,9 +46,6 @@ export default {
         }
       }
     }
-  },
-  mounted () {
-    console.log(this.slides)
   }
 }
 </script>

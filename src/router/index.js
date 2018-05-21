@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import HomePage from '@/pages/HomePage.vue'
 import Team from '@/components/Team.vue'
 import ProjectPage from '@/pages/ProjectsPage.vue'
+import ResearchPage from '@/pages/ResearchPage.vue'
+import PublicationsPage from '@/pages/PublicationsPage.vue'
 
 Vue.use(Router)
 
@@ -19,6 +21,14 @@ export default new Router({
     {
       path: '/projects',
       component: ProjectPage
+    },
+    {
+      path: '/research',
+      component: ResearchPage
+    },
+    {
+      path: '/publications',
+      component: PublicationsPage
     }
   ],
   mode: 'history'

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <hero :hero="page.slideshow[0]"></hero>
+    <div v-if="page.slideshow.length > 0">
+      <hero :hero="page.slideshow[0]"></hero>
+    </div>
     <section class="section">
       <div class="columns">
         <div class="column is-10 is-offset-1">
@@ -32,22 +34,24 @@ export default {
   data () {
     return {
       page: {
-        type: Object
+        text: '',
+        slideshow: []
       },
       slug: 'projects'
     }
   },
   methods: {
-    getPage() {
+    getPage () {
       butter.page.retrieve('main', this.slug)
         .then((res) => {
-          console.log(res)
           this.page = res.data.data.fields
         })
-    },
+    }
   },
-  created () {
-    this.getPage()
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      vm.getPage()
+    })
   }
 }
 </script>

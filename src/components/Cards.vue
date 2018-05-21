@@ -31,9 +31,8 @@ export default {
   },
   methods: {
     getCollection () {
-       butter.content.retrieve(['team'])
+      butter.content.retrieve(['team'])
         .then((res) => {
-          console.log(res.data.data)
           this.collection = res.data.data.team
         })
     }

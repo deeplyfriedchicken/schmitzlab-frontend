@@ -159,14 +159,4 @@ export default {
         +tablet
           margin-left: 0
           text-align: right
-
-
-// footer li:before
-//   content: '\f1b2'
-//   font-family: 'FontAwesome'
-//   float: left
-//   margin-left: -1.5em
-//   color: #147efb
 </style>
-
-

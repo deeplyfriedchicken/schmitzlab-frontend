@@ -9,7 +9,7 @@
         <h1 class="title">Collaborators</h1>
         <cards></cards>
     </div>
-  </div>  
+  </div>
 </template>
 
 <script>

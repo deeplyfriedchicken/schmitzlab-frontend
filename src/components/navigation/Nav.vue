@@ -90,7 +90,7 @@ export default {
   name: 'Nav',
   data () {
     return {
-        burger: false
+      burger: false
     }
   }
 }
@@ -111,5 +111,3 @@ export default {
   &:hover
     background-color: #49a6ed
 </style>
-
-

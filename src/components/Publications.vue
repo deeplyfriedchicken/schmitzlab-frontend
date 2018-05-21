@@ -19,9 +19,9 @@ export default {
   methods: {
     getPublications (n) {
       butter.content.retrieve(['publications'])
-      .then((res) => {
-        this.publications = res.data.data.publications
-      })
+        .then((res) => {
+          this.publications = res.data.data.publications
+        })
     }
   },
   created () {
@@ -29,4 +29,3 @@ export default {
   }
 }
 </script>
-

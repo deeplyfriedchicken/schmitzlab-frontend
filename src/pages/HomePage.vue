@@ -1,6 +1,8 @@
 <template>
   <div>
-    <slideshow :slides="page.slideshow"></slideshow>
+    <div v-if="page.slideshow.length > 0">
+      <slideshow :slides="page.slideshow"></slideshow>
+    </div>
     <section class="section">
       <div class="columns">
         <div class="column is-10 is-offset-1">
@@ -47,28 +49,33 @@ export default {
   data () {
     return {
       page: {
-        type: Object
+        text: '',
+        slideshow: []
       },
       slug: 'home'
     }
   },
   methods: {
-    getPage() {
+    getPage () {
       butter.page.retrieve('main', this.slug)
         .then((res) => {
-          console.log(res)
           this.page = res.data.data.fields
         })
-    },
+    }
   },
-  created () {
-    this.getPage()
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      vm.getPage()
+    })
   }
 }
 </script>
 
 <style lang="sass" scoped>
 @import '@/mq.sass'
+
+[v-cloak]
+  display: none
 
 .widget
   margin-bottom: 2rem

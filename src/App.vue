@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <navigation></navigation>
-    <router-view/>
+    <transition name="fade">
+      <router-view/>
+    </transition>
     <footer-nav></footer-nav>
   </div>
 </template>
@@ -22,6 +24,13 @@ export default {
 <style lang="sass">
 @import 'mq'
 @import '../node_modules/bulma/bulma.sass'
+
+.fade-enter-active, .fade-leave-active
+  height: 1000px
+  transition: opacity 0.25s ease-out
+
+.fade-enter, .fade-leave-to
+  opacity: 0
 
 .content
   div
