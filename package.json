@@ -4,7 +4,7 @@
   "description": "Admin panel for schmitzlab",
   "author": "Kevin Cunanan <kevin.a.cunanan@gmail.com>",
   "private": true,
-  "homepage": "https://github.com/kcunanan/schmitzlab",
+  "homepage": "https://github.com/kcunanan/schmitzlab-frontend",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",

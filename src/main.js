@@ -6,7 +6,6 @@ import router from './router'
 import VueMasonry from 'vue-masonry-css'
 import VueBlu from 'vue-blu'
 import './../node_modules/vue-blu/dist/css/vue-blu.min.css'
-import './../node_modules/font-awesome/css/font-awesome.min.css'
 
 Vue.config.productionTip = false
 

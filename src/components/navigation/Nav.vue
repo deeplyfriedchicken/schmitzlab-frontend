@@ -2,7 +2,7 @@
   <nav class="navbar is-transparent">
     <div class="navbar-brand">
       <a class="navbar-item" href="">
-        <img src="/static/images/schmitzlab.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+        <img src="./../../assets/images/schmitzlab.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
       </a>
       <div class="navbar-burger burger" v-bind:class="{ 'is-active' : burger }" @click="burger = !burger">
         <span></span>
