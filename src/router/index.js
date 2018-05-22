@@ -7,6 +7,8 @@ import PublicationsPage from '@/pages/PublicationsPage.vue'
 import TeachingPage from '@/pages/TeachingPage.vue'
 import PeoplePage from '@/pages/PeoplePage.vue'
 
+import Blog from '@/pages/Blog.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -34,6 +36,10 @@ export default new Router({
     {
       path: '/teaching',
       component: TeachingPage
+    },
+    {
+      path: '/blog',
+      component: Blog
     }
   ],
   mode: 'history'

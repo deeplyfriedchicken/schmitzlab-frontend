@@ -16,26 +16,26 @@
         <router-link class="navbar-item navbar-main" active-class="active" to="/" exact>
           Home
         </router-link>
+        <router-link class="navbar-item navbar-main" active-class="active" to="/people">
+          People
+        </router-link>
         <router-link class="navbar-item navbar-main" active-class="active" to="/research">
           Research
         </router-link>
         <router-link class="navbar-item navbar-main" active-class="active" to="/publications">
           Publications
         </router-link>
+        <router-link class="navbar-item navbar-main" active-class="active" to="/projects">
+          Projects
+        </router-link>
         <router-link class="navbar-item navbar-main" active-class="active" to="/teaching">
           Teaching
         </router-link>
         <router-link class="navbar-item navbar-main" active-class="active" to="/code">
-          Code
-        </router-link>
-        <router-link class="navbar-item navbar-main" active-class="active" to="/people">
-          People
-        </router-link>
-        <router-link class="navbar-item navbar-main" active-class="active" to="/projects">
-          Projects
+          Blog
         </router-link>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="/documentation/overview/start/">
+          <a class="navbar-link">
             More
           </a>
           <div class="navbar-dropdown is-boxed">
