@@ -85,7 +85,7 @@
     <div class="copyright has-text-centered">
       <div class="attribution" >
         <img src="https://vuejs.org/images/logo.png">
-        <img src="https://cdn.buttercms.com/RyJ7UhcVTCRqrCFXwgCo">
+        <a href="https://buttercms.com/" _target=""><img src="https://cdn.buttercms.com/RyJ7UhcVTCRqrCFXwgCo"></a>
       </div>
       <span class="has-text-grey is-size-7">© Schmitz Lab 2018 | Designed by Kevin Cunanan</span>
     </div>

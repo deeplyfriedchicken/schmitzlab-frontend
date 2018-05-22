@@ -3,14 +3,14 @@
     <div class="card large" v-for="(item, index) in collection" v-bind:key="index">
       <div class="card-image">
         <figure class="image">
-          <img :src="item.profile_picture" alt="Image">
+          <img :src="item.image.path | src" alt="Image">
         </figure>
       </div>
       <div class="card-content">
         <div class="media">
           <div class="media-content">
-            <p class="title is-4">{{ item.name }}</p>
-            <p class="subtitle is-6">{{ item.position }}</p>
+            <p class="title is-4">{{ item.first_name }} {{ item.last_name }}</p>
+            <p class="subtitle is-6">{{ item.affiliation }}</p>
             <p class="subtitle is-6">{{ item.college }}</p>
           </div>
         </div>
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { butter } from '@/buttercms'
+import { cockpit } from '@/cockpit'
 
 export default {
   name: 'Cards',
@@ -31,9 +31,9 @@ export default {
   },
   methods: {
     getCollection () {
-      butter.content.retrieve(['team'])
-        .then((res) => {
-          this.collection = res.data.data.team
+      cockpit.getCollection('people')
+        .then(res => {
+          this.collection = res.data.entries
         })
     }
   },
