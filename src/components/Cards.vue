@@ -1,17 +1,17 @@
 <template>
   <masonry :cols="{default: 3, 1000: 2, 600: 1}" :gutter="30">
-    <div class="card large" v-for="(item, index) in collection" v-bind:key="index">
+    <div class="card large" v-for="(person, index) in people" v-bind:key="index">
       <div class="card-image">
         <figure class="image">
-          <img :src="item.image.path | src" alt="Image">
+          <img :src="person.profile_picture| src" alt="Image">
         </figure>
       </div>
       <div class="card-content">
         <div class="media">
           <div class="media-content">
-            <p class="title is-4">{{ item.first_name }} {{ item.last_name }}</p>
-            <p class="subtitle is-6">{{ item.affiliation }}</p>
-            <p class="subtitle is-6">{{ item.college }}</p>
+            <p class="title is-4">{{ person.name }}</p>
+            <p class="subtitle is-6">{{ person.position }}</p>
+            <p class="subtitle is-6">{{ person.college }}</p>
           </div>
         </div>
       </div>
@@ -26,14 +26,14 @@ export default {
   name: 'Cards',
   data () {
     return {
-      collection: []
+      people: []
     }
   },
   methods: {
     getCollection () {
       butter.content.retrieve(['team'])
         .then((res) => {
-          this.collection = res.data.data.team
+          this.people = res.data.data.team
         })
     }
   },

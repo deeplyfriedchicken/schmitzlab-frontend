@@ -112,6 +112,13 @@ export default {
   img
     height: 50px
 
+
+.footer a:not(.icon), .footer a:visited:not(.icon)
+  border-bottom: none
+  &:hover
+    border-bottom: none
+    color: $link
+
 .footer
   background-color: #fafafa
   padding: 0.5rem
@@ -119,6 +126,7 @@ export default {
     border-bottom: none
     color: #4a4a4a
     &:hover
+      border-bottom: none
       color: $link
   .bd-footer-link-title:not(:first-child)
     margin-top: 1.5em
