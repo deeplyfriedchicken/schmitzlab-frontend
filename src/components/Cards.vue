@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { cockpit } from '@/cockpit'
+import { butter } from '@/buttercms'
 
 export default {
   name: 'Cards',
@@ -31,9 +31,9 @@ export default {
   },
   methods: {
     getCollection () {
-      cockpit.getCollection('people')
-        .then(res => {
-          this.collection = res.data.entries
+      butter.content.retrieve(['team'])
+        .then((res) => {
+          this.collection = res.data.data.team
         })
     }
   },
