@@ -3,7 +3,7 @@
     <div class="card large" v-for="(person, index) in people" v-bind:key="index">
       <div class="card-image">
         <figure class="image">
-          <img :src="person.profile_picture| src" alt="Image">
+          <img :src="person.profile_picture | src" alt="Image">
         </figure>
       </div>
       <div class="card-content">

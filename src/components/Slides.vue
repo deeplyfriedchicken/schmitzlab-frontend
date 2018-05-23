@@ -1,7 +1,7 @@
 <template>
-  <swiper :options="swiperOption">
+  <swiper :options="swiperOption" v-if="slides.length > 0">
     <swiper-slide v-for="(slide, index) in slides" v-bind:key="index">
-      <section class="hero is-info is-medium is-bold" v-bind:style="{ 'background-image': 'url(' + slide.image + ')' }">
+      <section class="hero is-info is-medium is-bold" v-bind:style="{ 'background-image': `url(${slide.image})` }">
         <div class="hero-body">
           <div class="container has-text-centered">
             <h1 class="title">
@@ -9,7 +9,7 @@
             </h1>
             <div>
               <h2 class="subtitle">
-              {{ slide.description }}
+              {{ slide.subtitle }}
               </h2>
             </div>
           </div>

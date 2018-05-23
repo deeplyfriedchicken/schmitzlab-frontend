@@ -1,18 +1,22 @@
 <template>
-  <section class="hero is-info is-medium is-bold" :style="{ 'background-image': `url(${hero.image})` }">
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <h1 class="title">
-          {{ hero.title }}
-        </h1>
-        <div>
-          <h2 class="subtitle">
-            {{ hero.description }}
-          </h2>
+  <div v-if="hero.length > 0">
+    <section
+      class="hero is-info is-medium is-bold"
+      :style="{ 'background-image': `url(${hero[0].image})` }">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title">
+            {{ hero[0].title }}
+          </h1>
+          <div>
+            <h2 class="subtitle">
+              {{ hero[0].subtitle }}
+            </h2>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script>

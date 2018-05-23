@@ -1,13 +1,11 @@
 <template>
   <div>
-    <div v-if="page.slideshow.length > 0">
-      <slideshow :slides="page.slideshow"></slideshow>
-    </div>
+    <slides :slides="page.slides"></slides>
     <section class="section">
       <div class="columns">
         <div class="column is-10 is-offset-1">
-          <div class="content" v-html="page.text"></div>
-          <section class="widget">
+          <div class="content" v-html="page.content"></div>
+          <!-- <section class="widget">
             <h1 class="title">Announcements</h1>
             <announcements></announcements>
           </section>
@@ -22,7 +20,7 @@
           <section class="widget">
             <h1 class="title">People</h1>
             <cards category="team"></cards>
-          </section>
+          </section> -->
         </div>
       </div>
     </section>
@@ -31,7 +29,7 @@
 </template>
 
 <script>
-import Slideshow from '@/components/Slideshow.vue'
+import Slides from '@/components/Slides.vue'
 import Cards from '@/components/Cards.vue'
 import Publications from '@/components/Publications.vue'
 import Projects from '@/components/Projects.vue'
@@ -42,7 +40,7 @@ import { butter } from '@/buttercms'
 export default {
   name: 'HomePage',
   components: {
-    'slideshow': Slideshow,
+    'slides': Slides,
     'cards': Cards,
     'publications': Publications,
     'announcements': Announcements,
@@ -51,16 +49,18 @@ export default {
   data () {
     return {
       page: {
-        text: '',
-        slideshow: []
+        title: '',
+        content: '',
+        slides: []
       },
       slug: 'home'
     }
   },
   methods: {
     getPage () {
-      butter.page.retrieve('main', this.slug)
+      butter.page.retrieve('home', this.slug)
         .then((res) => {
+          console.log(res)
           this.page = res.data.data.fields
         })
     }
