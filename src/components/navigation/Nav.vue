@@ -2,7 +2,7 @@
   <nav class="navbar is-transparent">
     <div class="navbar-brand">
       <a class="navbar-item" href="">
-        <img src="./../../assets/images/schmitzlab.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+        <logo></logo>
       </a>
       <div class="navbar-burger burger" v-bind:class="{ 'is-active' : burger }" @click="burger = !burger">
         <span></span>
@@ -73,8 +73,13 @@
 </template>
 
 <script>
+import Logo from '@/components/Logo.vue'
+
 export default {
   name: 'Nav',
+  components: {
+    'logo': Logo
+  },
   data () {
     return {
       burger: false
