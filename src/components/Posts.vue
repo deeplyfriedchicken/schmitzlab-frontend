@@ -1,8 +1,8 @@
 <template>
   <div>
     <!-- v-for here -->
-    <div v-for="i in 5" v-bind:key="i">
-      <post></post>
+    <div v-for="(post, i) in posts" v-bind:key="i">
+      <post :post="post"></post>
     </div>
   </div>
 </template>
@@ -14,6 +14,11 @@ export default {
   name: 'Posts',
   components: {
     'post': Post
+  },
+  props: {
+    posts: {
+      type: Array
+    }
   }
 }
 </script>

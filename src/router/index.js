@@ -8,8 +8,8 @@ import TeachingPage from '@/pages/TeachingPage.vue'
 import PeoplePage from '@/pages/PeoplePage.vue'
 
 import Blog from '@/pages/Blog.vue'
-import BlogList from '@/pages/BlogList.vue'
-import BlogPost from '@/pages/BlogPost.vue'
+import BlogList from '@/pages/Blog/BlogList.vue'
+import BlogPost from '@/pages/Blog/BlogPost.vue'
 
 Vue.use(Router)
 
