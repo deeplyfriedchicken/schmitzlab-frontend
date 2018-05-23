@@ -1,2 +1,2 @@
 import Butter from 'buttercms'
-export const butter = Butter('743f285e783328db63ded99d6cb20fe9f3480711')
+export const butter = Butter('f1abd4444380e11d8896e53fc3c93404d349c3a9')
