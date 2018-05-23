@@ -112,7 +112,6 @@ export default {
   img
     height: 50px
 
-
 .footer a:not(.icon), .footer a:visited:not(.icon)
   border-bottom: none
   &:hover
