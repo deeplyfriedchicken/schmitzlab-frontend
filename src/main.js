@@ -12,6 +12,9 @@ import './mq.sass'
 
 import { baseUrl } from './base.js'
 
+/* Filters */
+Vue.use(require('vue-moment'))
+
 Vue.filter('src', function (value) {
   if (!value) return ''
   value = value.toString()

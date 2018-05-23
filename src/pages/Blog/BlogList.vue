@@ -39,15 +39,14 @@ export default {
   methods: {
     getFeed () {
       butter.post.list({
-          page: 1,
-          page_size: 5
-        }).then((res) => {
-          console.log(res)
-          this.posts = res.data.data
-          this.page = res.config.params.page
-          this.meta = res.data.meta
-          this.loaded = true
-        })
+        page: 1,
+        page_size: 5
+      }).then((res) => {
+        this.posts = res.data.data
+        this.page = res.config.params.page
+        this.meta = res.data.meta
+        this.loaded = true
+      })
     }
   },
   created () {

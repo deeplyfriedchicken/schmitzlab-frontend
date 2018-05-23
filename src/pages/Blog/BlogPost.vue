@@ -1,48 +1,33 @@
 <template>
   <div>
     <div class="box">
-      <div class="has-text-centered">
-        <div class="post-header">
-          <img src="http://placehold.it/900x600">
-          <h4 class="title is-4 is-spaced">Some Post</h4>
-          <h5 class="subtitle is-5"><i>Some Post Subtitle</i></h5>
-          <hr/>
-        </div>
+      <div class="post-header">
+        <img :src="post.featured_image">
+        <h4 class="title is-4 is-spaced">{{ post.title }}</h4>
+        <h5 class="subtitle is-5"><i>{{ post.summary }}</i></h5>
+        <hr/>
       </div>
-      <div class="content-wrapper">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales pulvinar laoreet. Quisque consequat justo velit, at aliquam ex aliquet eu. Nulla facilisi. Vivamus ac nibh congue, faucibus purus sit amet, malesuada est. Mauris fringilla vulputate libero, et interdum purus sollicitudin vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales pulvinar laoreet. Quisque consequat justo velit, at aliquam ex aliquet eu. Nulla facilisi. Vivamus ac nibh congue, faucibus purus sit amet, malesuada est. Mauris fringilla vulputate libero, et interdum purus sollicitudin vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales pulvinar laoreet. Quisque consequat justo velit, at aliquam ex aliquet eu. Nulla facilisi. Vivamus ac nibh congue, faucibus purus sit amet, malesuada est. Mauris fringilla vulputate libero, et interdum purus sollicitudin vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales pulvinar laoreet. Quisque consequat justo velit, at aliquam ex aliquet eu. Nulla facilisi. Vivamus ac nibh congue, faucibus purus sit amet, malesuada est. Mauris fringilla vulputate libero, et interdum purus sollicitudin vel.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales pulvinar laoreet. Quisque consequat justo velit, at aliquam ex aliquet eu. Nulla facilisi. Vivamus ac nibh congue, faucibus purus sit amet, malesuada est. Mauris fringilla vulputate libero, et interdum purus sollicitudin vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales pulvinar laoreet. Quisque consequat justo velit, at aliquam ex aliquet eu. Nulla facilisi. Vivamus ac nibh congue, faucibus purus sit amet, malesuada est. Mauris fringilla vulputate libero, et interdum purus sollicitudin vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales pulvinar laoreet. Quisque consequat justo velit, at aliquam ex aliquet eu. Nulla facilisi. Vivamus ac nibh congue, faucibus purus sit amet, malesuada est. Mauris fringilla vulputate libero, et interdum purus sollicitudin vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales pulvinar laoreet. Quisque consequat justo velit, at aliquam ex aliquet eu. Nulla facilisi. Vivamus ac nibh congue, faucibus purus sit amet, malesuada est. Mauris fringilla vulputate libero, et interdum purus sollicitudin vel.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales pulvinar laoreet. Quisque consequat justo velit, at aliquam ex aliquet eu. Nulla facilisi. Vivamus ac nibh congue, faucibus purus sit amet, malesuada est. Mauris fringilla vulputate libero, et interdum purus sollicitudin vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales pulvinar laoreet. Quisque consequat justo velit, at aliquam ex aliquet eu. Nulla facilisi. Vivamus ac nibh congue, faucibus purus sit amet, malesuada est. Mauris fringilla vulputate libero, et interdum purus sollicitudin vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales pulvinar laoreet. Quisque consequat justo velit, at aliquam ex aliquet eu. Nulla facilisi. Vivamus ac nibh congue, faucibus purus sit amet, malesuada est. Mauris fringilla vulputate libero, et interdum purus sollicitudin vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales pulvinar laoreet. Quisque consequat justo velit, at aliquam ex aliquet eu. Nulla facilisi. Vivamus ac nibh congue, faucibus purus sit amet, malesuada est. Mauris fringilla vulputate libero, et interdum purus sollicitudin vel.</p>
+      <div class="content-wrapper" v-html="post.body">
       </div>
       <div class="end-post-details">
-        <div class="is-pulled-left">
-          <i>November 28, 2017 by <a>Author</a></i>
-        </div>
-        <div class="is-pulled-right">
-          <a>#blog</a> <a>#me</a> <a>#fun</a>
-        </div>
-      </div>
-      <hr/>
-      <div class="author-content">
-        <article class="media">
-          <div class="media-left">
-            <figure class="image is-64x64">
-              <img src="http://bulma.io/images/placeholders/128x128.png" alt="Image">
-            </figure>
+        <div class="columns">
+          <div class="column is-6">
+            <i>{{ post.published | moment('dddd, MMMM YYYY') }}</i>
           </div>
-          <div class="media-content">
-            <div class="content">
-              <strong>Author</strong>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis. Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.</p>
+          <div class="column is-6">
+            <div class="has-text-centered is-pulled-right">
+              <div v-for="(tag, i) in post.tags" :key="i">
+                <router-link class="blog-tag" :to="`/blog/tag/${tag.slug}`"><tag size="small">{{ tag.name }}</tag></router-link>
+              </div>
             </div>
           </div>
-        </article>
+        </div>
       </div>
       <hr/>
       <div class="end-content-nav-wrapper">
         <div class="is-pulled-left">
-          <a href="#">
-            <i class="fa fa-angle-double-left" aria-hidden="true"> Back to Home</i>
+          <a @click="$router.go(-1)">
+            Back
           </a>
         </div>
       </div>
@@ -53,11 +38,28 @@
 
 <script>
 import Post from '@/components/Post.vue'
+import Tag from '@/components/Tag.vue'
+
+import { butter } from '@/buttercms'
 
 export default {
   name: 'BlogPost',
   components: {
-    'post': Post
+    'post': Post,
+    'tag': Tag
+  },
+  data () {
+    return {
+      post: {}
+    }
+  },
+  created () {
+    butter.post.retrieve(this.$route.params.slug)
+      .then((res) => {
+        this.post = res.data.data
+      }).catch((res) => {
+        console.log(res)
+      })
   }
 }
 </script>
@@ -76,4 +78,3 @@ export default {
 .post-header img, .content-header img
   padding-bottom: 20px
 </style>
-

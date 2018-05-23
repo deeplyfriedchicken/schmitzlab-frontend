@@ -8,7 +8,7 @@
     <div class="card-content">
       <div class="has-text-centered">
         <router-link v-for="(category, i) in categories" :key="i" :to="`/blog/category/${category.slug}`">
-          <span class="tag is-info is-medium">{{ category.name }}</span>
+          <tag size="large">{{ category.name }}</tag>
         </router-link>
       </div>
     </div>
@@ -16,10 +16,15 @@
 </template>
 
 <script>
+import Tag from '@/components/Tag.vue'
+
 import { butter } from '@/buttercms'
 
 export default {
   name: 'Categories',
+  components: {
+    'tag': Tag
+  },
   data () {
     return {
       categories: []
@@ -40,20 +45,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.tag
+.tag-margin
   margin: 5px
-
-.tag.is-medium
-  font-size: 1.25rem
-  height: 35px
-  background-color: white
-  color: #cc181e
-  border: 2px solid #cc181e
-  border-radius: 0
-  &:hover
-    background-color: #cc181e
-    color: white
-    transition: all 0.5s
 
 .card-header-fix-center
   box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1)
@@ -84,5 +77,3 @@ export default {
 
 /* giving corners to the box styling */
 </style>
-
-
