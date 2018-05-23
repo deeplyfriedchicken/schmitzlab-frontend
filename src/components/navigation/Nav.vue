@@ -2,7 +2,7 @@
   <nav class="navbar is-transparent">
     <div class="navbar-brand">
       <a class="navbar-item" href="">
-        <img src="./../../assets/images/schmitzlab.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+        <logo></logo>
       </a>
       <div class="navbar-burger burger" v-bind:class="{ 'is-active' : burger }" @click="burger = !burger">
         <span></span>
@@ -16,51 +16,38 @@
         <router-link class="navbar-item navbar-main" active-class="active" to="/" exact>
           Home
         </router-link>
+        <router-link class="navbar-item navbar-main" active-class="active" to="/people">
+          People
+        </router-link>
         <router-link class="navbar-item navbar-main" active-class="active" to="/research">
           Research
         </router-link>
         <router-link class="navbar-item navbar-main" active-class="active" to="/publications">
           Publications
         </router-link>
-        <router-link class="navbar-item navbar-main" active-class="active" to="/teaching">
-          Teaching
-        </router-link>
-        <router-link class="navbar-item navbar-main" active-class="active" to="/code">
-          Code
-        </router-link>
-        <router-link class="navbar-item navbar-main" active-class="active" to="/people">
-          People
-        </router-link>
         <router-link class="navbar-item navbar-main" active-class="active" to="/projects">
           Projects
         </router-link>
+        <router-link class="navbar-item navbar-main" active-class="active" to="/teaching">
+          Teaching
+        </router-link>
+        <router-link class="navbar-item navbar-main" active-class="active" to="/blog">
+          Blog
+        </router-link>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="/documentation/overview/start/">
+          <a class="navbar-link">
             More
           </a>
           <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item" href="/documentation/overview/start/">
-              Overview
-            </a>
-            <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
-              Modifiers
-            </a>
-            <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-              Columns
-            </a>
-            <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-              Layout
-            </a>
-            <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-              Form
-            </a>
+            <!-- More Pages Navigation -->
+            <router-link class="navbar-item" active-class="active" to="/">
+              Pages
+            </router-link>
             <hr class="navbar-divider">
-            <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-              Elements
-            </a>
-            <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-              Components
-            </a>
+            <!-- Blog Categories -->
+            <router-link class="navbar-item" active-class="active" to="/">
+              Categories
+            </router-link>
           </div>
         </div>
       </div>
@@ -86,8 +73,13 @@
 </template>
 
 <script>
+import Logo from '@/components/Logo.vue'
+
 export default {
   name: 'Nav',
+  components: {
+    'logo': Logo
+  },
   data () {
     return {
       burger: false

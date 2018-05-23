@@ -8,7 +8,7 @@
           <!-- <section class="widget">
             <h1 class="title">Announcements</h1>
             <announcements></announcements>
-          </section>
+          </section> -->
           <section class="widget">
             <h1 class="title">Latest Publications</h1>
             <publications></publications>
@@ -20,7 +20,7 @@
           <section class="widget">
             <h1 class="title">People</h1>
             <cards category="team"></cards>
-          </section> -->
+          </section>
         </div>
       </div>
     </section>
@@ -60,7 +60,6 @@ export default {
     getPage () {
       butter.page.retrieve('home', this.slug)
         .then((res) => {
-          console.log(res)
           this.page = res.data.data.fields
         })
     }
@@ -85,7 +84,4 @@ export default {
 .container
   margin-top: 2em
   margin-bottom: 2em
-  +mobile
-      padding-left: 2rem
-      padding-right: 2rem
 </style>
