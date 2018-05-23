@@ -85,7 +85,4 @@ export default {
 .container
   margin-top: 2em
   margin-bottom: 2em
-  +mobile
-      padding-left: 2rem
-      padding-right: 2rem
 </style>

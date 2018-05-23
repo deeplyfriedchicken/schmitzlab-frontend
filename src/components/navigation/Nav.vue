@@ -31,7 +31,7 @@
         <router-link class="navbar-item navbar-main" active-class="active" to="/teaching">
           Teaching
         </router-link>
-        <router-link class="navbar-item navbar-main" active-class="active" to="/code">
+        <router-link class="navbar-item navbar-main" active-class="active" to="/blog">
           Blog
         </router-link>
         <div class="navbar-item has-dropdown is-hoverable">
@@ -39,28 +39,15 @@
             More
           </a>
           <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item" href="/documentation/overview/start/">
-              Overview
-            </a>
-            <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
-              Modifiers
-            </a>
-            <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-              Columns
-            </a>
-            <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-              Layout
-            </a>
-            <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-              Form
-            </a>
+            <!-- More Pages Navigation -->
+            <router-link class="navbar-item" active-class="active" to="/">
+              Pages
+            </router-link>
             <hr class="navbar-divider">
-            <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-              Elements
-            </a>
-            <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-              Components
-            </a>
+            <!-- Blog Categories -->
+            <router-link class="navbar-item" active-class="active" to="/">
+              Categories
+            </router-link>
           </div>
         </div>
       </div>

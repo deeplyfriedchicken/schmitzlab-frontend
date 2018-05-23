@@ -8,6 +8,8 @@ import TeachingPage from '@/pages/TeachingPage.vue'
 import PeoplePage from '@/pages/PeoplePage.vue'
 
 import Blog from '@/pages/Blog.vue'
+import BlogList from '@/pages/BlogList.vue'
+import BlogPost from '@/pages/BlogPost.vue'
 
 Vue.use(Router)
 
@@ -39,7 +41,17 @@ export default new Router({
     },
     {
       path: '/blog',
-      component: Blog
+      component: Blog,
+      children: [
+        {
+          path: '/',
+          component: BlogList
+        },
+        {
+          path: 'post/:slug',
+          component: BlogPost
+        }
+      ]
     }
   ],
   mode: 'history'
