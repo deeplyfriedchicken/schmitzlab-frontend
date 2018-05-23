@@ -16,7 +16,7 @@
         <div class="post-content-details">
           <div class="columns">
             <div class="column is-6">
-              <i>{{ post.published | moment('dddd, MMMM YYYY') }}</i>
+              <i>{{ post.published | moment('LLLL') }}</i>
             </div>
             <div class="column is-6">
               <div class="has-text-centered is-pulled-right">

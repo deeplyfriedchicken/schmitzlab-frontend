@@ -12,7 +12,7 @@
       <div class="end-post-details">
         <div class="columns">
           <div class="column is-6">
-            <i>{{ post.published | moment('dddd, MMMM YYYY') }}</i>
+            <i>{{ post.published | moment('LLLL') }}</i>
           </div>
           <div class="column is-6">
             <div class="has-text-centered is-pulled-right">
@@ -57,6 +57,7 @@ export default {
     butter.post.retrieve(this.$route.params.slug)
       .then((res) => {
         this.post = res.data.data
+        console.log(this.post)
       }).catch((res) => {
         console.log(res)
       })

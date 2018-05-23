@@ -8,7 +8,7 @@
           <!-- <section class="widget">
             <h1 class="title">Announcements</h1>
             <announcements></announcements>
-          </section>
+          </section> -->
           <section class="widget">
             <h1 class="title">Latest Publications</h1>
             <publications></publications>
@@ -20,7 +20,7 @@
           <section class="widget">
             <h1 class="title">People</h1>
             <cards category="team"></cards>
-          </section> -->
+          </section>
         </div>
       </div>
     </section>

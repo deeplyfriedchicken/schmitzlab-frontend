@@ -1,7 +1,7 @@
 <template>
   <masonry :cols="{default: 3, 1000: 2, 600: 1}" :gutter="30">
     <div v-for="(project, i) in projects" v-bind:key="i">
-      <img :src="project.cover_photo">
+      <img :src="project.featured_image">
     </div>
   </masonry>
 </template>

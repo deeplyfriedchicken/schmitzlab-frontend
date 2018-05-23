@@ -2,14 +2,11 @@
   <div class="card">
     <header class="card-header-fix-center has-text-centered">
       <p class="card-header-title-fix">
-        About
+        {{ title }}
       </p>
     </header>
     <div class="card-content">
-      <div class="content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-        <a>@bulmaio</a>. <a>#css</a> <a>#responsive</a>
-      </div>
+      <div class="content">{{ description }}</div>
     </div>
   </div>
 </template>
@@ -29,9 +26,15 @@ export default {
     getRegion () {
       butter.content.retrieve(['title', 'description'])
         .then((res) => {
-          console.log(res.data.data)
+          console.log(res)
+          this.title = res.data.data.title
+          this.description = res.data.data.description
         })
     }
+  },
+  created () {
+    console.log('hello???')
+    this.getRegion()
   }
 }
 </script>
@@ -52,4 +55,7 @@ export default {
   flex-grow: 1
   font-weight: 700
   padding: 0.75rem
+
+.content
+  font-size: 1rem
 </style>

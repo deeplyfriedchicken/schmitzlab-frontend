@@ -54,3 +54,8 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+.pagination a
+  padding: 6.5px 10px
+</style>

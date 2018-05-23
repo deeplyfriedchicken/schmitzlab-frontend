@@ -24,7 +24,7 @@ export default {
   name: 'Hero',
   props: {
     hero: {
-      type: Object
+      type: Array
     }
   }
 }

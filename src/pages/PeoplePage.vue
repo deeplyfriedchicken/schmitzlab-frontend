@@ -43,7 +43,6 @@ export default {
     getPage () {
       butter.page.retrieve('primary_page', this.slug)
         .then((res) => {
-          console.log(res)
           this.page = res.data.data.fields
         })
     }

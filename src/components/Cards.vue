@@ -3,15 +3,15 @@
     <div class="card large" v-for="(person, index) in people" v-bind:key="index">
       <div class="card-image">
         <figure class="image">
-          <img :src="person.profile_picture | src" alt="Image">
+          <img :src="person.image | src" alt="Image">
         </figure>
       </div>
       <div class="card-content">
         <div class="media">
           <div class="media-content">
-            <p class="title is-4">{{ person.name }}</p>
-            <p class="subtitle is-6">{{ person.position }}</p>
+            <p class="title is-4">{{ person.first_name }} {{ person.last_name }}</p>
             <p class="subtitle is-6">{{ person.college }}</p>
+            <p class="subtitle is-6">{{ person.affiliation }}</p>
           </div>
         </div>
       </div>
@@ -31,9 +31,9 @@ export default {
   },
   methods: {
     getCollection () {
-      butter.content.retrieve(['team'])
+      butter.content.retrieve(['people'])
         .then((res) => {
-          this.people = res.data.data.team
+          this.people = res.data.data.people
         })
     }
   },
