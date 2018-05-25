@@ -1,5 +1,8 @@
 <template>
-  <img :src="logo" alt="Schmitz Lab Logo" width="112" height="28">
+  <img v-if="loaded" :src="logo" alt="Schmitz Lab Logo" width="112" height="28">
+  <div v-else class="loader-container element is-loading">
+    <!-- <span class="loader"></span> -->
+  </div>
 </template>
 
 <script>
@@ -9,7 +12,8 @@ export default {
   name: 'Logo',
   data () {
     return {
-      logo: ''
+      logo: '',
+      loaded: false
     }
   },
   methods: {
@@ -17,6 +21,7 @@ export default {
       butter.content.retrieve(['logo'])
         .then((res) => {
           this.logo = res.data.data.logo
+          this.loaded = true
         })
     }
   },
@@ -25,3 +30,14 @@ export default {
   }
 }
 </script>
+
+<style <style lang="sass" scoped>
+@import '@/mq.sass'
+div.loader-container
+  width: 112px
+  height: 28px
+
+.element.is-loading
+  &:after
+    top: calc(15%)
+</style>
