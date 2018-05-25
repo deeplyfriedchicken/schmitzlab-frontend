@@ -23,17 +23,26 @@
 import { butter } from '@/buttercms'
 
 export default {
-  name: 'Cards',
+  name: 'People',
+  props: {
+    limitPeople: Boolean
+  },
   data () {
     return {
-      people: []
+      people: [],
+      limit: null
     }
   },
   methods: {
     getCollection () {
-      butter.content.retrieve(['people'])
+      butter.content.retrieve(['people', 'people_limit'])
         .then((res) => {
-          this.people = res.data.data.people
+          if (this.limitPeople) {
+            this.limit = res.data.data.people_limit
+            this.people = res.data.data.people.slice(0, this.limit)
+          } else {
+            this.people = res.data.data.people
+          }
         })
     }
   },

@@ -11,16 +11,25 @@ import { butter } from '@/buttercms'
 
 export default {
   name: 'publications',
+  props: {
+    limitPublications: Boolean
+  },
   data () {
     return {
-      publications: []
+      publications: [],
+      limit: null
     }
   },
   methods: {
-    getPublications (n) {
-      butter.content.retrieve(['publications'])
+    getPublications () {
+      butter.content.retrieve(['publications', 'publications_limit'])
         .then((res) => {
-          this.publications = res.data.data.publications
+          if (this.limitPublications) {
+            this.limit = res.data.data.publications_limit
+            this.publications = res.data.data.publications.slice(0, this.limit)
+          } else {
+            this.publications = res.data.data.publications
+          }
         })
     }
   },

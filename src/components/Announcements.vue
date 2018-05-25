@@ -12,6 +12,9 @@ import { butter } from '@/buttercms'
 
 export default {
   name: 'Announcements',
+  props: {
+    limitAnnouncements: Boolean
+  },
   data () {
     return {
       announcements: {
@@ -21,9 +24,14 @@ export default {
   },
   methods: {
     getCollection () {
-      butter.content.retrieve(['announcements'])
+      butter.content.retrieve(['announcements', 'announcements_limit'])
         .then((res) => {
-          this.announcements = res.data.data.announcements
+          if (this.limitAnnouncements) {
+            this.limit = res.data.data.projects_limit
+            this.announcements = res.data.data.announcements.slice(0, this.limit)
+          } else {
+            this.announcements = res.data.data.announcements
+          }
         })
     }
   },

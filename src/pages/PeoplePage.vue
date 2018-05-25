@@ -8,7 +8,7 @@
           <div class="has-text-centered">
             <h1 class="title">People</h1>
             <hr>
-            <cards category="team"></cards>
+            <people category="team"></people>
           </div>
         </div>
       </div>
@@ -19,7 +19,7 @@
 
 <script>
 import Hero from '@/components/Hero.vue'
-import Cards from '@/components/Cards.vue'
+import People from '@/components/People.vue'
 
 import { butter } from '@/buttercms'
 
@@ -27,7 +27,7 @@ export default {
   name: 'PeoplePage',
   components: {
     'hero': Hero,
-    'cards': Cards
+    'people': People
   },
   data () {
     return {

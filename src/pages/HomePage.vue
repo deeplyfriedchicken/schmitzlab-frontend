@@ -7,19 +7,19 @@
           <div class="content" v-html="page.content"></div>
           <!-- <section class="widget">
             <h1 class="title">Announcements</h1>
-            <announcements></announcements>
+            <announcements limitAnnouncements></announcements>
           </section> -->
           <section class="widget">
             <h1 class="title">Latest Publications</h1>
-            <publications></publications>
+            <publications limitPublications></publications>
           </section>
           <section class="widget">
             <h1 class="title">Projects</h1>
-            <projects></projects>
+            <projects limitProjects></projects>
           </section>
           <section class="widget">
             <h1 class="title">People</h1>
-            <cards category="team"></cards>
+            <people limitPeople></people>
           </section>
         </div>
       </div>
@@ -30,7 +30,7 @@
 
 <script>
 import Slides from '@/components/Slides.vue'
-import Cards from '@/components/Cards.vue'
+import People from '@/components/People.vue'
 import Publications from '@/components/Publications.vue'
 import Projects from '@/components/Projects.vue'
 import Announcements from '@/components/Announcements.vue'
@@ -41,7 +41,7 @@ export default {
   name: 'HomePage',
   components: {
     'slides': Slides,
-    'cards': Cards,
+    'people': People,
     'publications': Publications,
     'announcements': Announcements,
     'projects': Projects

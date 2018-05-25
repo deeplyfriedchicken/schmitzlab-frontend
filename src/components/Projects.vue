@@ -11,6 +11,9 @@ import { butter } from '@/buttercms'
 
 export default {
   name: 'Projects',
+  props: {
+    limitProjects: Boolean
+  },
   data () {
     return {
       projects: {
@@ -20,9 +23,14 @@ export default {
   },
   methods: {
     getCollection () {
-      butter.content.retrieve(['projects'])
+      butter.content.retrieve(['projects', 'projects_limit'])
         .then((res) => {
-          this.projects = res.data.data.projects
+          if (this.limitProjects) {
+            this.limit = res.data.data.projects_limit
+            this.projects = res.data.data.projects.slice(0, this.limit)
+          } else {
+            this.projects = res.data.data.projects
+          }
         })
     }
   },
