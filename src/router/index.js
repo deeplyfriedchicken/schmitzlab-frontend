@@ -7,6 +7,8 @@ import PublicationsPage from '@/pages/PublicationsPage.vue'
 import TeachingPage from '@/pages/TeachingPage.vue'
 import PeoplePage from '@/pages/PeoplePage.vue'
 
+import Page from '@/pages/Page.vue'
+
 import Blog from '@/pages/Blog.vue'
 import BlogList from '@/pages/Blog/BlogList.vue'
 import BlogPost from '@/pages/Blog/BlogPost.vue'
@@ -38,6 +40,10 @@ export default new Router({
     {
       path: '/teaching',
       component: TeachingPage
+    },
+    {
+      path: '/page/:slug',
+      component: Page
     },
     {
       path: '/blog',

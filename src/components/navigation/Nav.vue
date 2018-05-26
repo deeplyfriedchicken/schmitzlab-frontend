@@ -40,8 +40,8 @@
           </a>
           <div class="navbar-dropdown is-boxed">
             <!-- More Pages Navigation -->
-            <router-link class="navbar-item" active-class="active" to="/">
-              Pages
+            <router-link v-for="(page, i) in pages" :key="i" class="navbar-item" active-class="active" :to="`/page/${page.slug}`">
+              {{ page.fields.title }}
             </router-link>
             <hr class="navbar-divider">
             <!-- Blog Categories -->
@@ -75,6 +75,8 @@
 <script>
 import Logo from '@/components/Logo.vue'
 
+import { butter } from '@/buttercms'
+
 export default {
   name: 'Nav',
   components: {
@@ -82,8 +84,22 @@ export default {
   },
   data () {
     return {
-      burger: false
+      burger: false,
+      pages: []
     }
+  },
+  methods: {
+    getPages () {
+      butter.page.list('page')
+        .then((res) => {
+          this.pages = res.data.data
+        }).catch((res) => {
+          console.log(res)
+        })
+    }
+  },
+  created () {
+    this.getPages()
   }
 }
 </script>
