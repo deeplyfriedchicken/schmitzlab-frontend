@@ -1,8 +1,6 @@
 <template>
   <img v-if="loaded" :src="logo" alt="Schmitz Lab Logo" width="112" height="28">
-  <div v-else class="loader-container element is-loading">
-    <!-- <span class="loader"></span> -->
-  </div>
+  <div v-else class="loader-container element is-loading"></div>
 </template>
 
 <script>
