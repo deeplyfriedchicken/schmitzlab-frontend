@@ -6,6 +6,9 @@ import ResearchPage from '@/pages/ResearchPage.vue'
 import PublicationsPage from '@/pages/PublicationsPage.vue'
 import TeachingPage from '@/pages/TeachingPage.vue'
 import PeoplePage from '@/pages/PeoplePage.vue'
+import AnnouncementsPage from '@/pages/AnnouncementsPage.vue'
+
+import Page from '@/pages/Page.vue'
 
 import Blog from '@/pages/Blog.vue'
 import BlogList from '@/pages/Blog/BlogList.vue'
@@ -28,16 +31,24 @@ export default new Router({
       component: ProjectPage
     },
     {
-      path: '/research',
-      component: ResearchPage
+      path: '/announcements',
+      component: AnnouncementsPage
     },
     {
       path: '/publications',
       component: PublicationsPage
     },
     {
+      path: '/research',
+      component: ResearchPage
+    },
+    {
       path: '/teaching',
       component: TeachingPage
+    },
+    {
+      path: '/page/:slug',
+      component: Page
     },
     {
       path: '/blog',

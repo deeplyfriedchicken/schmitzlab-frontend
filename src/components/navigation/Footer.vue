@@ -11,69 +11,35 @@
           <div class="columns">
               <div class="column is-3">
                 <p class="bd-footer-link-title">
-                  <a href="">Home</a>
+                  <router-link to="/">Home</router-link>
                 </p>
                 <p class="bd-footer-link-title">
-                  <a href="">Blog</a>
+                  Blog
                 </p>
                 <p class="bd-footer-link">
-                  <a href="">
-                    Title of Post 1
-                  </a>
-                </p>
-                <p class="bd-footer-link">
-                  <a href="">
-                    Title of Post 2
-                  </a>
-                </p>
-                <p class="bd-footer-link">
-                  <a href="">
-                    Title of Post 3
-                  </a>
+                  <router-link v-for="(post, i) in posts" :key="i" :to="`/blog/post/${post.slug}`">
+                    {{ post.title }}
+                  </router-link>
                 </p>
                 <p class="bd-footer-link bd-is-more">
-                  <a href="https://bulma.io/blog">
+                  <router-link to="/blog">
                     View all posts
-                  </a>
+                  </router-link>
                 </p>
               </div>
               <div class="column is-3">
                 <p class="bd-footer-link-title">Projects</p>
-                  <p class="bd-footer-link"><a href="">Labore et dolore magna aliqua</a></p>
-                  <p class="bd-footer-link"><a href="">Kanban airis sum eschelor</a></p>
-                  <p class="bd-footer-link"><a href="">Modular modern free</a></p>
-                  <p class="bd-footer-link"><a href="">The king of clubs</a></p>
-                  <p class="bd-footer-link"><a href="">The Discovery Dissipation</a></p>
+                  <p v-for="(project, i) in projects" :key="i" class="bd-footer-link"><router-link :to="`/projects/${project.slug}`">{{ project.name }}</router-link></p>
               </div>
               <div class="column is-6">
-                <p class="bd-footer-link-title">Areas of Study</p>
-                <p class="bd-footer-link bd-has-subtitle">
-                  <a href="https://bulma.io/expo">
+                <p class="bd-footer-link-title">More</p>
+                <p v-for="(link, i) in footer_links" :key="i" class="bd-footer-link bd-has-subtitle">
+                  <a :href="link.link">
                     <strong>
-                      Functional Morphology
+                      {{ link.name }}
                     </strong>
                     <em>
-                      Description goes here
-                    </em>
-                  </a>
-                </p>
-                <p class="bd-footer-link bd-has-subtitle">
-                  <a href="https://bulma.io/expo">
-                    <strong>
-                      Evolutionary Morphology
-                    </strong>
-                    <em>
-                      Next description goes here
-                    </em>
-                  </a>
-                </p>
-                <p class="bd-footer-link bd-has-subtitle">
-                  <a href="https://bulma.io/expo">
-                    <strong>
-                      Expo
-                    </strong>
-                    <em>
-                      Official Bulma showcase
+                      {{ link.description }}
                     </em>
                   </a>
                 </p>
@@ -84,17 +50,47 @@
     </footer>
     <div class="copyright has-text-centered">
       <div class="attribution" >
-        <img src="https://vuejs.org/images/logo.png">
-        <a href="https://buttercms.com/" _target=""><img src="https://cdn.buttercms.com/RyJ7UhcVTCRqrCFXwgCo"></a>
+        <a href="https://vuejs.org" _target="blank"><img src="https://vuejs.org/images/logo.png"></a>
+        <a href="https://buttercms.com/" _target="blank"><img src="https://cdn.buttercms.com/RyJ7UhcVTCRqrCFXwgCo"></a>
       </div>
-      <span class="has-text-grey is-size-7">© Schmitz Lab 2018 | Designed by Kevin Cunanan</span>
+      <span class="has-text-grey is-size-7">© Schmitz Lab 2018 | Designed by <a _target="blank" href="http://kcunanan.com">Kevin Cunanan</a></span>
     </div>
   </div>
 </template>
 
 <script>
+import { butter } from '@/buttercms'
+
 export default {
-  name: 'Footer'
+  name: 'Footer',
+  data () {
+    return {
+      posts: [],
+      projects: [],
+      footer_links: [],
+      loaded: false
+    }
+  },
+  methods: {
+    getPosts () {
+      butter.post.list({page: 1, page_size: 4})
+        .then((res) => {
+          this.posts = res.data.data
+        })
+    },
+    getContent () {
+      butter.content.retrieve(['projects', 'footer_links'])
+        .then((res) => {
+          this.projects = res.data.data.projects
+          this.footer_links = res.data.data.footer_links
+          this.loaded = true
+        })
+    }
+  },
+  created () {
+    this.getPosts()
+    this.getContent()
+  }
 }
 </script>
 

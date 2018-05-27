@@ -2,7 +2,7 @@
   <div>
     <div class="notification" v-for="(announcement, i) in announcements" v-bind:key="i">
       <h3 class="title is-4">{{ announcement.title }}</h3>
-      <div class="content" v-html="announcement.text"></div>
+      <div class="content" v-html="announcement.content"></div>
     </div>
   </div>
 </template>
@@ -32,6 +32,7 @@ export default {
           } else {
             this.announcements = res.data.data.announcements
           }
+          this.announcements = this.announcements.filter(a => a.published == true)
         })
     }
   },
