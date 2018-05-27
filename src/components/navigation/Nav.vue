@@ -40,6 +40,9 @@
           </a>
           <div class="navbar-dropdown is-boxed">
             <!-- More Pages Navigation -->
+            <router-link to="/announcements" class="navbar-item" active-class="active">
+              Announcements
+            </router-link>
             <router-link v-for="(page, i) in pages" :key="i" class="navbar-item" active-class="active" :to="`/page/${page.slug}`">
               {{ page.fields.title }}
             </router-link>

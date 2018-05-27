@@ -29,7 +29,7 @@ export default {
 }
 </script>
 
-<style <style lang="sass" scoped>
+<style lang="sass" scoped>
 @import '@/mq.sass'
 div.loader-container
   width: 112px

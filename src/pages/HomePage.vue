@@ -5,10 +5,10 @@
       <div class="columns">
         <div class="column is-10 is-offset-1">
           <div class="content" v-html="page.content"></div>
-          <!-- <section class="widget">
+          <section class="widget">
             <h1 class="title">Announcements</h1>
             <announcements limitAnnouncements></announcements>
-          </section> -->
+          </section>
           <section class="widget">
             <h1 class="title">Latest Publications</h1>
             <publications limitPublications></publications>
