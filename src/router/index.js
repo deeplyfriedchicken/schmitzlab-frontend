@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from '@/pages/HomePage.vue'
-import ProjectPage from '@/pages/ProjectsPage.vue'
+import ProjectsPage from '@/pages/ProjectsPage.vue'
+import ProjectPage from '@/pages/ProjectPage.vue'
 import ResearchPage from '@/pages/ResearchPage.vue'
 import PublicationsPage from '@/pages/PublicationsPage.vue'
 import TeachingPage from '@/pages/TeachingPage.vue'
@@ -28,6 +29,10 @@ export default new Router({
     },
     {
       path: '/projects',
+      component: ProjectsPage
+    },
+    {
+      path: '/projects/:slug',
       component: ProjectPage
     },
     {

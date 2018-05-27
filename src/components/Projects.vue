@@ -1,8 +1,8 @@
 <template>
   <masonry :cols="{default: 3, 1000: 2, 600: 1}" :gutter="30">
-    <div v-for="(project, i) in projects" v-bind:key="i">
+    <router-link :to="`/projects/${project.slug}`" tag="div" v-for="(project, i) in projects" v-bind:key="i" class="project">
       <img :src="project.featured_image">
-    </div>
+    </router-link>
   </masonry>
 </template>
 
@@ -39,3 +39,10 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+.project
+  cursor: pointer
+  &:hover
+    box-shadow: 0 0 15px rgba(33,33,33,.2)
+</style>
