@@ -32,7 +32,7 @@ export default {
           } else {
             this.announcements = res.data.data.announcements
           }
-          this.announcements = this.announcements.filter(a => a.published == true)
+          this.announcements = this.announcements.filter(a => a.published === true)
         })
     }
   },

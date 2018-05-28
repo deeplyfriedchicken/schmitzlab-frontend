@@ -2,8 +2,8 @@
   <section class="section">
     <div class="columns">
       <div class="column is-8 is-offset-2">
-        <div class="image">
-          <img :src="project.featured_image"/>
+        <div class="has-text-centered">
+          <img class="image" :src="project.featured_image"/>
         </div>
         <div class="content" v-html="project.description"></div>
       </div>
@@ -42,7 +42,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-
+.image
+  display: inline-block
+  max-height: 600px
 </style>
-
-

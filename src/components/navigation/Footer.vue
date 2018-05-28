@@ -50,8 +50,8 @@
     </footer>
     <div class="copyright has-text-centered">
       <div class="attribution" >
-        <a href="https://vuejs.org" _target="blank"><img src="https://vuejs.org/images/logo.png"></a>
-        <a href="https://buttercms.com/" _target="blank"><img src="https://cdn.buttercms.com/RyJ7UhcVTCRqrCFXwgCo"></a>
+        <a href="https://vuejs.org" target="_blank"><img src="https://vuejs.org/images/logo.png"></a>
+        <a href="https://buttercms.com/" target="_blank"><img src="https://cdn.buttercms.com/RyJ7UhcVTCRqrCFXwgCo"></a>
       </div>
       <span class="has-text-grey is-size-7">© Schmitz Lab 2018 | Designed by <a _target="blank" href="http://kcunanan.com">Kevin Cunanan</a></span>
     </div>
