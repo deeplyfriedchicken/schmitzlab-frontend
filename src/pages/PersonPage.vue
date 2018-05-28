@@ -1,9 +1,9 @@
 <template>
   <section class="section">
     <div class="columns">
-      <div class="column is-2-desktop is-offset-1-desktop is-4-tablet">
+      <div class="column is-3-desktop is-offset-1-desktop is-4-tablet">
         <div class="sidebar">
-          <div class="">
+          <div class="has-text-centered-mobile">
             <img class="image profile-picture" :src="person.image"/>
             <div class="subtitle">
               <p>{{ person.college }} {{ person.graduation_year }}</p>
@@ -75,7 +75,7 @@ export default {
   padding-right: 5px
 
 +tablet-only
-  .column.is-2-desktop
+  .column.is-3-desktop
     margin-left: 0
 
 </style>
