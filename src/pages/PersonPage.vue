@@ -1,13 +1,11 @@
 <template>
   <section class="section">
     <div class="columns">
-      <div class="column is-2 is-offset-1">
+      <div class="column is-2-desktop is-offset-1-desktop is-4-tablet">
         <div class="sidebar">
           <div class="">
             <img class="image profile-picture" :src="person.image"/>
-            <h3 class="title">{{ person.first_name }} {{ person.last_name }}</h3>
             <div class="subtitle">
-              <p>{{person.affiliation}}</p>
               <p>{{ person.college }} {{ person.graduation_year }}</p>
               <p><a :href="person.email">{{ person.email }}</a></p>
             </div>
@@ -20,7 +18,9 @@
           </div>
         </div>
       </div>
-      <div class="column is-7">
+      <div class="column is-7-desktop is-8-tablet">
+        <h3 class="title">{{ person.first_name }} {{ person.last_name }}</h3>
+        <p class="subtitle">{{person.affiliation}}</p>
         <div class="content" v-html="person.biography"></div>
       </div>
     </div>
@@ -64,6 +64,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+@import '@/mq.sass'
 .fa
   font-size: 1.5em
 .profile
@@ -72,4 +73,9 @@ export default {
   display: inline
 .sidebar
   padding-right: 5px
+
++tablet-only
+  .column.is-2-desktop
+    margin-left: 0
+
 </style>
