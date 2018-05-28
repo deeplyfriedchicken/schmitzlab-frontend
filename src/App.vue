@@ -22,12 +22,19 @@ export default {
 </script>
 
 <style lang="sass">
+#footer
+ position: absolute
+ width: 100%
+
 .fade-enter-active, .fade-leave-active
   height: 1000px
   transition: opacity 0.25s ease-out
 
 .fade-enter, .fade-leave-to
   opacity: 0
+
+#app
+  min-height: 1000px
 
 .content
   div

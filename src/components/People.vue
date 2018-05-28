@@ -1,6 +1,6 @@
 <template>
   <masonry :cols="{default: 3, 1000: 2, 600: 1}" :gutter="30">
-    <div class="card large" v-for="(person, index) in people" v-bind:key="index">
+    <router-link :to="`/people/${person.slug}`" tag="div" class="card large" v-for="(person, index) in people" v-bind:key="index">
       <div class="card-image">
         <figure class="image">
           <img :src="person.image | src" alt="Image">
@@ -15,7 +15,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </router-link>
   </masonry>
 </template>
 
@@ -55,6 +55,9 @@ export default {
 <style lang="sass" scoped>
 .card
   width: 100%
+  cursor: pointer
+  &:hover
+    box-shadow: 0 0 15px rgba(33,33,33,.2)
 
 .card.large
   -webkit-backface-visibility: hidden

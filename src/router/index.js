@@ -1,12 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from '@/pages/HomePage.vue'
-import ProjectPage from '@/pages/ProjectsPage.vue'
 import ResearchPage from '@/pages/ResearchPage.vue'
 import PublicationsPage from '@/pages/PublicationsPage.vue'
 import TeachingPage from '@/pages/TeachingPage.vue'
-import PeoplePage from '@/pages/PeoplePage.vue'
 import AnnouncementsPage from '@/pages/AnnouncementsPage.vue'
+
+import ProjectsPage from '@/pages/ProjectsPage.vue'
+import ProjectPage from '@/pages/ProjectPage.vue'
+
+import PeoplePage from '@/pages/PeoplePage.vue'
+import PersonPage from '@/pages/PersonPage.vue'
 
 import Page from '@/pages/Page.vue'
 
@@ -27,7 +31,15 @@ export default new Router({
       component: PeoplePage
     },
     {
+      path: '/people/:slug',
+      component: PersonPage
+    },
+    {
       path: '/projects',
+      component: ProjectsPage
+    },
+    {
+      path: '/projects/:slug',
       component: ProjectPage
     },
     {

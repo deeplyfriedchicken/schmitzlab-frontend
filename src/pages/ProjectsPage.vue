@@ -24,7 +24,7 @@ import Projects from '@/components/Projects.vue'
 import { butter } from '@/buttercms'
 
 export default {
-  name: 'ProjectPage',
+  name: 'ProjectsPage',
   components: {
     'projects': Projects,
     'hero': Hero
