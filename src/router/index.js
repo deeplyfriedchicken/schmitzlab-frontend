@@ -17,6 +17,7 @@ import Page from '@/pages/Page.vue'
 import Blog from '@/pages/Blog.vue'
 import BlogList from '@/pages/Blog/BlogList.vue'
 import BlogPost from '@/pages/Blog/BlogPost.vue'
+import CategoryTag from '@/pages/Blog/CategoryTag.vue'
 
 Vue.use(Router)
 
@@ -69,6 +70,14 @@ export default new Router({
         {
           path: '/',
           component: BlogList
+        },
+        {
+          path: 'category/:category',
+          component: CategoryTag
+        },
+        {
+          path: 'tag/:tag',
+          component: CategoryTag
         },
         {
           path: 'post/:slug',

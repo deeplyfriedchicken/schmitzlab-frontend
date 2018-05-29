@@ -2,7 +2,7 @@
   <div>
     <div class="box">
       <div class="post-header">
-        <img :src="post.featured_image">
+        <img v-if="post.featured_image" :src="post.featured_image">
         <h4 class="title is-4 is-spaced">{{ post.title }}</h4>
         <h5 class="subtitle is-5"><i>{{ post.summary }}</i></h5>
         <hr/>
@@ -57,7 +57,6 @@ export default {
     butter.post.retrieve(this.$route.params.slug)
       .then((res) => {
         this.post = res.data.data
-        console.log(this.post)
       }).catch((res) => {
         console.log(res)
       })
