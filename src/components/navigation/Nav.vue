@@ -48,8 +48,8 @@
             </router-link>
             <hr class="navbar-divider">
             <!-- Blog Categories -->
-            <router-link class="navbar-item" active-class="active" to="/">
-              Categories
+            <router-link v-for="(category, i) in categories" :key="`${i}-${category.name}`" class="navbar-item" active-class="active" :to="`/blog/category/${category.name.toLowerCase()}`">
+              {{ category.name }}
             </router-link>
           </div>
         </div>
@@ -88,7 +88,8 @@ export default {
   data () {
     return {
       burger: false,
-      pages: []
+      pages: [],
+      categories: []
     }
   },
   methods: {
@@ -99,10 +100,17 @@ export default {
         }).catch((res) => {
           console.log(res)
         })
+    },
+    getCategories () {
+      butter.category.list()
+        .then((res) => {
+          this.categories = res.data.data
+        })
     }
   },
   created () {
     this.getPages()
+    this.getCategories()
   }
 }
 </script>

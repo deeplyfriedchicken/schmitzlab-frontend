@@ -3,7 +3,7 @@
     <div class="box">
       <router-link :to="`/blog/post/${post.slug}`">
         <div class="post-header">
-          <img :src="post.featured_image">
+          <img v-if="post.featured_image" :src="post.featured_image">
           <h4 class="title is-4">{{ post.title }}</h4>
         </div>
       </router-link>

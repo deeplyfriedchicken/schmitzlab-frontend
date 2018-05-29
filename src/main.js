@@ -15,13 +15,23 @@ import { baseUrl } from './base.js'
 /* Filters */
 Vue.use(require('vue-moment'))
 
-Vue.filter('src', function (value) {
+Vue.filter('src', value => {
   if (!value) return ''
   value = value.toString()
   if (value.includes('http://') || value.includes('https://')) {
     return value
   }
   return `${baseUrl}${value}`
+})
+
+Vue.filter('lowercase', value => {
+  return value.toString().toLowerCase()
+})
+
+Vue.filter('capitalize', value => {
+  if (!value) return ''
+  value = value.toString()
+  return value.charAt(0).toUpperCase() + value.slice(1)
 })
 
 Vue.config.productionTip = false
