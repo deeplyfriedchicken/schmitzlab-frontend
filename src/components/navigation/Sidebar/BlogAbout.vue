@@ -26,14 +26,12 @@ export default {
     getRegion () {
       butter.content.retrieve(['title', 'description'])
         .then((res) => {
-          console.log(res)
           this.title = res.data.data.title
           this.description = res.data.data.description
         })
     }
   },
   created () {
-    console.log('hello???')
     this.getRegion()
   }
 }
