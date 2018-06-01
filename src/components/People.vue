@@ -9,9 +9,9 @@
       <div class="card-content">
         <div class="media">
           <div class="media-content">
-            <p class="title is-4">{{ person.first_name }} {{ person.last_name }}</p>
-            <p class="subtitle is-6">{{ person.college }}</p>
-            <p class="subtitle is-6">{{ person.affiliation }}</p>
+            <p class="title">{{ person.first_name }} {{ person.last_name }}</p>
+            <p class="subtitle">{{ person.college }}</p>
+            <p class="subtitle">{{ person.affiliation }}</p>
           </div>
         </div>
       </div>
@@ -54,6 +54,7 @@ export default {
 
 <style lang="sass" scoped>
 .card
+  transiton: all 1s
   width: 100%
   cursor: pointer
   &:hover
@@ -70,4 +71,8 @@ export default {
 
 .title.no-padding
   margin-bottom: 0 !important
+
+.media-content
+  .subtitle
+    margin-bottom: 2px
 </style>

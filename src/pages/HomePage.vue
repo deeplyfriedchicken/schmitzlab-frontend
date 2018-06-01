@@ -12,14 +12,19 @@
           <section class="widget">
             <h1 class="title">Latest Publications</h1>
             <publications limitPublications></publications>
+            <router-link to="/publications">See more <i class="fa fa-arrow-circle-right"></i></router-link>
           </section>
           <section class="widget">
             <h1 class="title">Projects</h1>
-            <projects limitProjects></projects>
+            <div class="projects">
+              <projects limitProjects></projects>
+            </div>
+            <router-link class="more" to="/projects">See more <i class="fa fa-arrow-circle-right"></i></router-link>
           </section>
           <section class="widget">
             <h1 class="title">People</h1>
             <people limitPeople></people>
+            <router-link to="/people">See more <i class="fa fa-arrow-circle-right"></i></router-link>
           </section>
         </div>
       </div>
@@ -84,4 +89,10 @@ export default {
 .container
   margin-top: 2em
   margin-bottom: 2em
+
+.fa
+  vertical-align: baseline
+
+.projects
+  margin-bottom: 1.5em
 </style>

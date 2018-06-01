@@ -16,8 +16,8 @@
                 <p class="bd-footer-link-title">
                   Blog
                 </p>
-                <p class="bd-footer-link">
-                  <router-link v-for="(post, i) in posts" :key="i" :to="`/blog/post/${post.slug}`">
+                <p class="bd-footer-link" v-for="(post, i) in posts" :key="i">
+                  <router-link :to="`/blog/post/${post.slug}`">
                     {{ post.title }}
                   </router-link>
                 </p>
@@ -29,7 +29,12 @@
               </div>
               <div class="column is-3">
                 <p class="bd-footer-link-title">Projects</p>
-                  <p v-for="(project, i) in projects" :key="i" class="bd-footer-link"><router-link :to="`/projects/${project.slug}`">{{ project.name }}</router-link></p>
+                <p v-for="(project, i) in projects" :key="i" class="bd-footer-link"><router-link :to="`/projects/${project.slug}`">{{ project.name }}</router-link></p>
+                <p class="bd-footer-link bd-is-more">
+                  <router-link to="/projects">
+                    View all projects
+                  </router-link>
+                </p>
               </div>
               <div class="column is-6">
                 <p class="bd-footer-link-title">More</p>
