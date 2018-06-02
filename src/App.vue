@@ -40,6 +40,9 @@ export default {
   div
     margin-top: 2rem
     margin-bottom: 2rem
+  img
+    max-height: 750px
+    width: auto
 
 .video
   position: relative

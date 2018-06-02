@@ -1,11 +1,12 @@
 <template>
   <masonry :cols="{default: 3, 1000: 2, 600: 1}" :gutter="30">
-    <router-link :to="`/projects/${project.slug}`" tag="div" v-for="(project, i) in projects" v-bind:key="i" class="project">
-      <div class="project-container">
+    <router-link :to="`/projects/${project.slug}`" tag="div" v-for="(project, i) in projects" v-bind:key="i" class="card large">
+      <div class="card-image">
         <img class="image" :src="project.featured_image">
-        <div class="overlay">
-          <p><i class="fa fa-link"></i></p>
-          <p>{{ project.name }}</p>
+      </div>
+      <div :class="`card-content-container ${hideTitles()}`">
+        <div class="card-content">
+          <h1 class="title">{{ project.name }}</h1>
         </div>
       </div>
     </router-link>
@@ -18,7 +19,8 @@ import { butter } from '@/buttercms'
 export default {
   name: 'Projects',
   props: {
-    limitProjects: Boolean
+    limitProjects: Boolean,
+    showTitles: Boolean
   },
   data () {
     return {
@@ -38,6 +40,10 @@ export default {
             this.projects = res.data.data.projects
           }
         })
+    },
+    hideTitles () {
+      // returns the css class hide if the prop is false
+      return this.showTitles ? '' : 'hide'
     }
   },
   created () {
@@ -48,44 +54,29 @@ export default {
 
 <style lang="sass" scoped>
 @import '@/mq.sass'
-
-p
-  -webkit-font-smoothing: antialiased
-  font-size: 1.5em
-  font-weight: 600
-  margin: auto
-  transition-delay: 0s
-  position: absolute
-  left: 50%;
-  top: 50%
-  transform: translate(-50%, -15%)
-  color: white
-  z-index: 15
-  white-space: nowrap;
-
-p i
-  transform: translate(-50%, -100%)
-
-.project-container
-  position: relative
+.card
+  transiton: all 1s
+  width: 100%
+  cursor: pointer
   &:hover
-    .overlay
-      width: 100%
-      p
-        visibility: visible
+    box-shadow: 0 0 15px rgba(33,33,33,.2)
+    .card-content-container.hide
+      max-height: 500px
 
-.overlay
-  position: absolute
-  bottom: 0
-  left: 0
-  right: 0
-  background-color: $link
+.card-content-container.hide
+  max-height: 0
+  transition: max-height 0.25s
   overflow: hidden
-  width: 0
-  height: 100%
-  opacity: .75
-  transition: .5s ease
+
+.card.large
+  -webkit-backface-visibility: hidden
+  backface-visibility: initial
+  border-radius: 5px
+  margin-bottom: 20px
 
 .project
   cursor: pointer
+
+.title
+  font-size: 1.5rem
 </style>

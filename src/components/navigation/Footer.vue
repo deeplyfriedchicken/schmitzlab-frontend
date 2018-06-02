@@ -86,7 +86,7 @@ export default {
     getContent () {
       butter.content.retrieve(['projects', 'footer_links'])
         .then((res) => {
-          this.projects = res.data.data.projects
+          this.projects = res.data.data.projects.slice(0, 3)
           this.footer_links = res.data.data.footer_links
           this.loaded = true
         })
