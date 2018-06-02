@@ -9,7 +9,7 @@
             <h1 class="title">Projects</h1>
             <hr>
           </div>
-          <projects></projects>
+          <projects showTitles></projects>
         </div>
       </div>
     </section>
