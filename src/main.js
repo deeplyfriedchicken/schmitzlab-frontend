@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 
 import VueBlu from 'vue-blu'
+import VueAnalytics from 'vue-analytics'
 
 import VueMasonry from 'vue-masonry-css'
 import './../node_modules/vue-blu/dist/css/vue-blu.min.css'
@@ -38,6 +39,10 @@ Vue.config.productionTip = false
 
 Vue.use(VueMasonry)
 Vue.use(VueBlu)
+Vue.use(VueAnalytics, {
+  id: 'UA-121232781-3',
+  router
+})
 
 /* eslint-disable no-new */
 new Vue({
